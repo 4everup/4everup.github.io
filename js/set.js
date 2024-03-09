@@ -31,7 +31,7 @@ let bg_img_preinstall = {
   type: "4", // 1:默认背景 2:每日一图 3:随机风景 4:随机动漫
   2: "https://api.dujin.org/bing/1920.php", // 每日一图
   3: "https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images", // 随机风景
-  4: "https://foreverwlwl.oss-cn-beijing.aliyuncs.com/typora/202401172008617.png", // 随机动漫
+  4: "https://foreverwlwl.oss-cn-beijing.aliyuncs.com/typora/202403091545759.png", // 随机动漫
 };
 
 // 更改背景图片
