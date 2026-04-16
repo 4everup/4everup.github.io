@@ -195,7 +195,7 @@ $("#upWeather").click(function () {
         clearInterval(index);
       }
     }, 60000);
-    getWeather();
+    // getWeather();
     iziToast.show({
       timeout: 2000,
      // icon: "fa-solid fa-cloud-sun",
