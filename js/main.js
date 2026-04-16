@@ -183,7 +183,7 @@ const getWeather = () => {
     });
 };
 
-getWeather();
+// getWeather();
 
 let wea = 0;
 $("#upWeather").click(function () {
