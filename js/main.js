@@ -142,73 +142,73 @@ $("#hitokoto").click(function () {
   }
 });
 
-// 获取天气
-// 请前往 https://www.mxnzp.com/doc/list 申请 app_id 和 app_secret
-const mainKey = "a3fffa0245662497ef1617583a4b6dcf"; // 高德开发者 Key
-// const mainKey = "PV0NjZjaacwEESRMP"; // 高德开发者 Key
-const getWeather = () => {
-  fetch(`https://restapi.amap.com/v3/ip?key=${mainKey}`)
-//   fetch(`https://api.seniverse.com/v3/weather/now.json?key=${mainKey}&location=beijing&language=zh-Hans&unit=c`)
-    .then((response) => response.json())
-    .then((res) => {
-      const adcode = res.adcode;
-      $("#city_text").html(res.city);
-      fetch(
-        `https://restapi.amap.com/v3/weather/weatherInfo?key=${mainKey}&city=${adcode}`
-      )
-        .then((response) => response.json())
-        .then((res) => {
-          if (res.status) {
-            $("#wea_text").html(res.lives[0].weather);
-            $("#tem_text").html(res.lives[0].temperature + "°C&nbsp;");
-            $("#win_text").html(res.lives[0].winddirection + "风");
-            $("#win_speed").html(res.lives[0].windpower + "级");
-          } else {
-            console.error("天气信息获取失败");
-            iziToast.show({
-              timeout: 2000,
-             // icon: "fa-solid fa-cloud-sun",
-              message: "天气信息获取失败",
-            });
-          }
-        });
-    })
-    .catch((err) => {
-      console.error("天气信息获取失败：" + err);
-      iziToast.show({
-        timeout: 2000,
-        //icon: "fa-solid fa-cloud-sun",
-        message: "天气信息获取失败",
-      });
-    });
-};
+// // 获取天气
+// // 请前往 https://www.mxnzp.com/doc/list 申请 app_id 和 app_secret
+// const mainKey = "a3fffa0245662497ef1617583a4b6dcf"; // 高德开发者 Key
+// // const mainKey = "PV0NjZjaacwEESRMP"; // 高德开发者 Key
+// const getWeather = () => {
+//   fetch(`https://restapi.amap.com/v3/ip?key=${mainKey}`)
+// //   fetch(`https://api.seniverse.com/v3/weather/now.json?key=${mainKey}&location=beijing&language=zh-Hans&unit=c`)
+//     .then((response) => response.json())
+//     .then((res) => {
+//       const adcode = res.adcode;
+//       $("#city_text").html(res.city);
+//       fetch(
+//         `https://restapi.amap.com/v3/weather/weatherInfo?key=${mainKey}&city=${adcode}`
+//       )
+//         .then((response) => response.json())
+//         .then((res) => {
+//           if (res.status) {
+//             $("#wea_text").html(res.lives[0].weather);
+//             $("#tem_text").html(res.lives[0].temperature + "°C&nbsp;");
+//             $("#win_text").html(res.lives[0].winddirection + "风");
+//             $("#win_speed").html(res.lives[0].windpower + "级");
+//           } else {
+//             console.error("天气信息获取失败");
+//             iziToast.show({
+//               timeout: 2000,
+//              // icon: "fa-solid fa-cloud-sun",
+//               message: "天气信息获取失败",
+//             });
+//           }
+//         });
+//     })
+//     .catch((err) => {
+//       console.error("天气信息获取失败：" + err);
+//       iziToast.show({
+//         timeout: 2000,
+//         //icon: "fa-solid fa-cloud-sun",
+//         message: "天气信息获取失败",
+//       });
+//     });
+// };
 
-// getWeather();
+// // getWeather();
 
-let wea = 0;
-$("#upWeather").click(function () {
-  if (wea == 0) {
-    wea = 1;
-    let index = setInterval(function () {
-      wea--;
-      if (wea == 0) {
-        clearInterval(index);
-      }
-    }, 60000);
-    // getWeather();
-    iziToast.show({
-      timeout: 2000,
-     // icon: "fa-solid fa-cloud-sun",
-      message: "实时天气已更新",
-    });
-  } else {
-    iziToast.show({
-      timeout: 1000,
-     // icon: "fa-solid fa-circle-exclamation",
-      message: "请稍后再更新哦",
-    });
-  }
-});
+// let wea = 0;
+// $("#upWeather").click(function () {
+//   if (wea == 0) {
+//     wea = 1;
+//     let index = setInterval(function () {
+//       wea--;
+//       if (wea == 0) {
+//         clearInterval(index);
+//       }
+//     }, 60000);
+//     // getWeather();
+//     iziToast.show({
+//       timeout: 2000,
+//      // icon: "fa-solid fa-cloud-sun",
+//       message: "实时天气已更新",
+//     });
+//   } else {
+//     iziToast.show({
+//       timeout: 1000,
+//      // icon: "fa-solid fa-circle-exclamation",
+//       message: "请稍后再更新哦",
+//     });
+//   }
+// });
 
 //获取时间
 let t = null;
